@@ -1,0 +1,59 @@
+\documentclass{article}
+\begin{document}
+
+Problem: Give you an object which is in a room, and the room is insulated,\\
+T0T: The initial temperature of the environment\\
+T0: The initial temperature of the object\\
+mt: The mass of the the environment\\
+mT: The mass of the the object\\
+ct: The specific heat capacity of the environment\\
+cT: The specific heat capacity of the object\\
+k: The thermal transmissivity of material\\
+Now, try to solve the curve of the temperature variation
+
+\newpage
+We can get the differential equation which is given by Newton: 
+\begin{equation}
+T' = -k(T - T_{0T})
+\end{equation}
+where $T_{0T}$ is the temperature of the environment. \\
+
+However, there is a problem in this differential equation which is that it is supposed that the temperature of the environment is unchangable,
+which caused a problem that we cannot process the question just like above.\\
+Now we change it slightly that make it like below:
+\begin{equation}
+T' = -k(T - \frac{c_T m_T (T_0 - T)}{c_t m_t} - T_{0T})
+\end{equation}
+
+Simplify it to the form below:
+\begin{equation}
+T' + T(k + \frac{c_T m_T k}{c_t m_t}) = \frac{k c_T m_T T_0}{c_t m_t} + k T_{0T}
+\end{equation}
+
+Let the equation's both sides be timed by $u$, where $u$ satisfied:
+\begin{equation}
+u' = u(k + \frac{c_T m_T k}{c_t m_t})
+\end{equation}
+
+so that we can rewrite the equation as:
+\begin{equation}
+(uT)' = u\frac{k c_T m_T T_0}{c_t m_t} + k T_{0T}
+\end{equation}
+
+For we can get $u$:
+\begin{equation}
+u = e^{(k + \frac{c_T m_T k}{c_t m_t})t}
+\end{equation}
+
+replace $u$ in (5), and do integral to it, therefore we can get:
+\begin{equation}
+T = \frac{k c_T m_T T_0}{c_t m_t (k + \frac{c_T m_T k}{c_t m_t})} + \frac{k T_{0T}}{k + \frac{c_T m_T k}{c_t m_t}} + Ce^{-t(k + \frac{c_T m_T k}{c_t m_t})}
+\end{equation}
+
+Then, we replace the initial state $(0, T_0)$ into the equation above, therefore we can get:
+
+\begin{equation}
+T = \frac{c_T m_T T_0}{c_t m_t (1 + \frac{c_T m_T}{c_t m_t})} + \frac{T_{0T}}{1 + \frac{c_Tm_T}{c_tm_t}} + (T_0 - \frac{c_Tm_TT_0}{c_tm_t(1+\frac{c_Tm_T}{c_tm_t})} - \frac{T_{0T}}{1 + \frac{c_Tm_T}{c_tm_t}})e^{-t(k + \frac{c_Tm_Tk}{c_tm_t})}
+\end{equation}
+
+\end{document}
